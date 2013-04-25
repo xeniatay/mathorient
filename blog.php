@@ -1,49 +1,28 @@
 <?php
 /*
-Template Name: CAS Protected Post 
+Template Name: Blog Posts
 */
 ?>
 
-<?php
-$_cas_directory = '/users/mathorient/util/cas/';
-require_once( $_cas_directory . 'CAS.php' );
-
-phpCAS::client(
-	CAS_VERSION_2_0,
-	'cas.uwaterloo.ca',
-	443,
-	'/cas'
-	);
-phpCAS::setCasServerCACert( '/var/lib/cas/globalsignchain.crt' );
-
-phpCAS::forceAuthentication();
-?>
-
-
 <?php get_header(); ?>
-
-<?php
-
-// If user isn't authenticated, tell them they need to login to check
-if( ! phpCAS::isAuthenticated() ) {
-
-?>
-
-<div>
-Please Log In to view this page.
-
-It really should be impossible to get here, to be honest.
-</div>
-
-
-<?php
-
-// User is already logged in
-} else {
-
-    echo 'Hello, ' . phpCAS::getUser();
-?>
-
+			
+			<?php
+				$blog_hero = of_get_option('blog_hero');
+				if ($blog_hero){
+			?>
+			<div class="clearfix row-fluid">
+				<div class="hero-unit">
+				
+					<h1><?php bloginfo('title'); ?></h1>
+					
+					<p><?php bloginfo('description'); ?></p>
+				
+				</div>
+			</div>
+			<?php
+				}
+			?>
+			
 			<div id="content" class="clearfix row-fluid">
 			
 				<div id="main" class="span8 clearfix" role="main">
@@ -109,11 +88,5 @@ It really should be impossible to get here, to be honest.
 				<?php get_sidebar(); // sidebar 1 ?>
     
 			</div> <!-- end #content -->
-
-
-<?php
-}
-?>
-
 
 <?php get_footer(); ?>
