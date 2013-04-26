@@ -16,12 +16,6 @@ Template Name: Left Sidebar Page
 					
 					<article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?> role="article">
 						
-						<header>
-							
-							<div class="page-header"><h1><?php the_title(); ?></h1></div>
-						
-						</header> <!-- end article header -->
-					
 						<section class="post_content">
 							<?php the_content(); ?>
 					

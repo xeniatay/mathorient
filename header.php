@@ -41,6 +41,11 @@
 		
   		<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
 
+      <!-- Fonts -->
+      <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Droid+Sans">
+      <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Droid+Sans+Mono">
+      <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Droid+Serif">
+
   		<link rel="stylesheet/less" type="text/css" href="<?php echo get_template_directory_uri(); ?>/less/bootstrap.less">
   		<link rel="stylesheet/less" type="text/css" href="<?php echo get_template_directory_uri(); ?>/less/responsive.less">
 
@@ -49,7 +54,7 @@
 		<!-- end of wordpress head -->
 
 		<!-- theme options from options panel -->
-		<?php get_wpbs_theme_options(); ?>
+		<?php //get_wpbs_theme_options(); ?>
 
 		<?php 
 
@@ -89,40 +94,34 @@
 	
 	<body <?php body_class(); ?>>
 				
-		<header role="banner">
-		
-			<div id="inner-header" class="clearfix">
-				
-				<div class="navbar navbar-fixed-top">
-					<div class="navbar-inner">
-						<div class="container-fluid nav-container">
-							<nav role="navigation">
-								<a class="brand" id="logo" title="<?php echo get_bloginfo('description'); ?>" href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a>
-								
-								<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-							        <span class="icon-bar"></span>
-							        <span class="icon-bar"></span>
-							        <span class="icon-bar"></span>
-								</a>
-								
-								<div class="nav-collapse">
-									<?php bones_main_nav(); // Adjust using Menus in Wordpress Admin ?>
-								</div>
-								
-							</nav>
-							
-							<?php if(of_get_option('search_bar', '1')) {?>
-							<form class="navbar-search pull-right" role="search" method="get" id="searchform" action="<?php echo home_url( '/' ); ?>">
-								<input name="s" id="s" type="text" class="search-query" autocomplete="off" placeholder="<?php _e('Search','bonestheme'); ?>" data-provide="typeahead" data-items="4" data-source='<?php echo $typeahead_data; ?>'>
-							</form>
-							<?php } ?>
-							
-						</div>
-					</div>
-				</div>
-			
-			</div> <!-- end #inner-header -->
-		
-		</header> <!-- end header -->
+		<div class="container-fluid">
+      <header role="banner" class="row-fluid">
+        <div class="inner-header span8">
+          <h1 class="page-title">
+            <?php the_title(); ?>
+          </h1>
+          <h2 class="custom-tagline">
+            <?php echo get_post_meta($post->ID, 'custom_tagline' , true);?>
+          </h2>
+
+          <h1 class="site-title">
+            <a class="brand" id="logo" title="<?php echo get_bloginfo('description'); ?>" href="<?php echo home_url(); ?>">
+              <span class="pink">Math </span>
+              <span>Orientation</span>
+            </a>
+          </h1>
+
+          <div class="nav-collapse">
+            <?php bones_main_nav(); // Adjust using Menus in Wordpress Admin ?>
+          </div>
+          
+          <?php if(of_get_option('search_bar', '1')) {?>
+        </div> <!-- end #inner-header -->
+        <form class="navbar-search pull-right span3" role="search" method="get" id="searchform" action="<?php echo home_url( '/' ); ?>">
+          <input name="s" id="s" type="text" class="search-query" autocomplete="off" placeholder="<?php _e('Search','bonestheme'); ?>" data-provide="typeahead" data-items="4" data-source='<?php echo $typeahead_data; ?>'>
+        </form>
+        <?php } ?>
+      </header> <!-- end header -->
+    </div>
 		
 		<div class="container-fluid">

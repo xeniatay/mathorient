@@ -79,22 +79,11 @@ Template Name: Homepage
 								$featured_src = wp_get_attachment_image_src( $post_thumbnail_id, 'wpbs-featured-home' ); 
 								// not sure why this isn't working yet
 							?>
-						
-							<div class="hero-unit" style="background-image: url('<?php echo $featured_src; ?>'); background-repeat: no-repeat; background-position: 0 0;">
-
-								<?php the_post_thumbnail( 'wpbs-featured-home' ); ?>
-
-								<h1><?php the_title(); ?></h1>
-								
-								<?php echo get_post_meta($post->ID, 'custom_tagline' , true);?>
-							
-							</div>
-
 						</header>
 						
 						<section class="row-fluid post_content">
 						
-							<div class="span8">
+							<div class="hero-unit span8">
 						
 								<?php the_content(); ?>
 								
