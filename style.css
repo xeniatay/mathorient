@@ -630,34 +630,63 @@ h2.custom-tagline {
   color: #e0249a;
 }
 
-.hero-unit {
-  background: none;
+#main {
   border: 1px solid #CFCFCF;
-  font-size: 1.0em;
+  padding: 1em;
+
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
 }
 
-.menu {
+.widget_pages, .menu {
   list-style: none;
 }
 
-.menu li {
-  font-size: 1.0em;
+.widget_pages .children > li, .menu > li {
+  font-size: 14px;
   line-height: 1.5em;
   background: #e0249a;
   margin: 0.5em;
-  padding: 0.3em 0.5em;
+  padding: 0.4em 0.8em;
 
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -o-border-radius: 10px;
-  border-radius: 10px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
 }
 
-.menu li a {
+.widget_pages .children li > a, .menu li > a {
   color: #ffffff;
+}
+
+.widget_pages .children > li:after, .menu > li:after {
+  content: "\2192";
+  color: #ffffff;
+  text-align: right;
+  float: right;
 }
 
 p {
   font-size: 13px;
 }
+
+.widget_pages .page_item, .widget_pages .widgettitle {
+  display: none;
+}
+
+.widget_pages .current_page_item, .widget_pages .current_page_item .page_item {
+  display: block;
+}
+
+.widget_pages .current_page_item > a {
+  display: none;
+}
+
+.widget_pages .current_page_item ul.children {
+  margin: 0;
+}
+

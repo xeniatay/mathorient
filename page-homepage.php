@@ -8,7 +8,7 @@ Template Name: Homepage
 			
 			<div id="content" class="clearfix row-fluid">
 			
-				<div id="main" class="span12 clearfix" role="main">
+				<div id="main-container" class="span12 clearfix" role="main">
 
 					<?php
 
@@ -83,7 +83,7 @@ Template Name: Homepage
 						
 						<section class="row-fluid post_content">
 						
-							<div class="hero-unit span8">
+							<div id="main" class="main span8">
 						
 								<?php the_content(); ?>
 								
