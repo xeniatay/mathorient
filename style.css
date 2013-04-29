@@ -648,7 +648,7 @@ h2.custom-tagline {
 .widget_pages .children > li, .menu > li {
   font-size: 14px;
   line-height: 1.5em;
-  background: #e0249a;
+/*  background: #e0249a; */
   margin: 0.5em;
   padding: 0.4em 0.8em;
 
@@ -660,7 +660,9 @@ h2.custom-tagline {
 }
 
 .widget_pages .children li > a, .menu li > a {
-  color: #ffffff;
+  /* 
+   * color: #ffffff;
+   */
 }
 
 .widget_pages .children > li:after, .menu > li:after {
