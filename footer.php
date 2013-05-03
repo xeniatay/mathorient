@@ -2,6 +2,11 @@
 			
 				<div id="inner-footer" class="clearfix">
 		          <hr />
+              <div class="waterloo-orientation">
+                <a href="http://orientation.uwaterloo.ca" title="http://orientation.uwaterloo.ca">
+                  <img class="footer-logo" src="/images/waterloo_orientation.png">
+                </a>
+              </div>
 		          <div id="widget-footer" class="clearfix row-fluid">
 		            <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('footer1') ) : ?>
 		            <?php endif; ?>
@@ -15,10 +20,8 @@
 						<?php bones_footer_links(); // Adjust using Menus in Wordpress Admin ?>
 					</nav>
 					
-					<p class="pull-right"><a href="http://320press.com" id="credit320" title="By the dudes of 320press">320press</a></p>
+					<!-- <p class="pull-right"><a href="http://320press.com" id="credit320" title="By the dudes of 320press">320press</a></p> -->
 			
-					<p class="attribution">&copy; <?php bloginfo('name'); ?></p>
-				
 				</div> <!-- end #inner-footer -->
 				
 			</footer> <!-- end footer -->

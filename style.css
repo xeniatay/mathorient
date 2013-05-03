@@ -692,3 +692,10 @@ p {
   margin: 0;
 }
 
+#inner-footer {
+  margin: 1em;
+}
+
+.footer-logo { 
+  max-width: 150px;
+}
