@@ -4,17 +4,19 @@ Template Name: CAS Protected Page
 */
 ?>
 <?php
-$_cas_directory = '/users/mathorient/util/cas/';
-require_once( $_cas_directory . 'CAS.php' );
+if( !$cas_configured ){
+    $cas_configured;
+    $_cas_directory = '/users/mathorient/util/cas/';
+    require_once( $_cas_directory . 'CAS.php' );
 
-phpCAS::client(
-	CAS_VERSION_2_0,
-	'cas.uwaterloo.ca',
-	443,
-	'/cas'
-	);
-phpCAS::setCasServerCACert( '/var/lib/cas/globalsignchain.crt' );
-
+    phpCAS::client(
+        CAS_VERSION_2_0,
+        'cas.uwaterloo.ca',
+        443,
+        '/cas'
+        );
+    phpCAS::setCasServerCACert( '/var/lib/cas/globalsignchain.crt' );
+    }
 phpCAS::forceAuthentication();
 ?>
 
