@@ -641,6 +641,8 @@ h2.custom-tagline {
   border-radius: 5px;
 }
 
+
+/* 'Pages' widget for navigation */
 .widget_pages, .menu {
   list-style: none;
 }
@@ -698,4 +700,14 @@ p {
 
 .footer-logo { 
   max-width: 150px;
+}
+
+/* Nav-subpage */
+.nav-subpage {
+  font:13px/1.5 'Droid Sans', sans-serif;
+  list-style: none;
+}
+
+.current-page-item > a {
+  font-weight: bold;
 }

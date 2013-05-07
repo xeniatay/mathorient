@@ -107,8 +107,7 @@ It really should be impossible to get here, to be honest.
 					<?php endif; ?>
 			
 				</div> <!-- end #main -->
-    
-				<?php get_sidebar(); // sidebar 1 ?>
+        <?php get_sidebar('sidebarblog'); // sidebar 2 ?>
     
 			</div> <!-- end #content -->
 
