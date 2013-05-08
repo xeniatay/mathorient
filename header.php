@@ -98,7 +98,10 @@
       <header role="banner" class="row-fluid">
         <div class="inner-header span8">
           <h1 class="page-title">
-            <?php the_title(); ?>
+            <?php if (is_home()) : wp_title('');
+                  else : the_title();
+                  endif; ?>
+          </h1>
           </h1>
           <h2 class="custom-tagline">
             <?php echo get_post_meta($post->ID, 'custom_tagline' , true);?>

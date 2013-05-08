@@ -702,12 +702,32 @@ p {
   max-width: 150px;
 }
 
-/* Nav-subpage */
-.nav-subpage {
+/* Nav-subpage and nav sidebarblog */
+.nav-subpage,
+.nav-subpage .children,
+#sidebarblog ul {
   font:13px/1.5 'Droid Sans', sans-serif;
   list-style: none;
 }
 
-.current-page-item > a {
+.current-page-item > a,
+.current_page_item {
   font-weight: bold;
+}
+
+#sidebarblog > ul > li.pagenav {
+  color:#FFFFFF;
+}
+
+#sidebarblog > ul > li.pagenav > ul {
+	color: #808080;
+}
+
+#sidebarblog .pagenav > ul,
+#sidebarblog .pagenav ul.children {
+  margin-left: 0;
+} 
+
+#sidebarblog .pagenav ul.children ul {
+  margin-left: 25px;
 }
