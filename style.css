@@ -706,17 +706,23 @@ p {
 .nav-subpage,
 .nav-subpage .children,
 #sidebarblog ul {
-  font:13px/1.5 'Droid Sans', sans-serif;
   list-style: none;
+}
+
+.nav-subpage li,
+#sidebarblog li {
+  font:17px/28px 'Droid Sans', sans-serif;
 }
 
 .current-page-item > a,
 .current_page_item {
   font-weight: bold;
+  color: #e0249a;
 }
 
 #sidebarblog > ul > li.pagenav {
   color:#FFFFFF;
+  margin-top:-35px;
 }
 
 #sidebarblog > ul > li.pagenav > ul {
@@ -728,6 +734,22 @@ p {
   margin-left: 0;
 } 
 
+.nav-subpage > ul > ul,
 #sidebarblog .pagenav ul.children ul {
   margin-left: 25px;
+  list-style-type:circle;
+}
+
+/* Footer */
+.waterloo-orientation,
+.admin-login {
+  display:inline-block;
+}
+
+.waterloo-orientation {
+  float:left;
+}
+
+.admin-login {
+  float:right;
 }

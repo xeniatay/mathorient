@@ -7,6 +7,11 @@
                   <img class="footer-logo" src="/images/waterloo_orientation.png">
                 </a>
               </div>
+              <div class="admin-login">
+                <a href="http://orientation.uwaterloo.ca/wp/wp-admin" title="Admin Login">
+                  Login (Admin)
+                </a>
+              </div>
 		          <div id="widget-footer" class="clearfix row-fluid">
 		            <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('footer1') ) : ?>
 		            <?php endif; ?>

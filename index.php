@@ -1,12 +1,11 @@
 <?php
 /*
-Template Name: CAS Protected Post 
-*/
+Template Name: Leader Protected Blog Post Template 
+ */
 ?>
-
 <?php
 if( !$cas_configured ){
-    $cas_configured = true;
+    $cas_configured;
     $_cas_directory = '/users/mathorient/util/cas/';
     require_once( $_cas_directory . 'CAS.php' );
 
@@ -24,6 +23,8 @@ phpCAS::forceAuthentication();
 
 <?php get_header(); ?>
 
+        <div id="primary">
+            <div id="content" role="main">
 <?php
 
 // If user isn't authenticated, tell them they need to login to check
@@ -40,13 +41,36 @@ It really should be impossible to get here, to be honest.
 
 <?php
 
-// User is already logged in
+    // User is already logged in
 } else {
+    $username = phpCAS::getUser();
 
-    echo 'Hello, ' . phpCAS::getUser();
+
+    global $wpdb;
+    $table_name = $wpdb->prefix . "leaders";
+
+    $leader = $wpdb->get_row(
+        $wpdb->prepare(
+            "SELECT *
+            FROM $table_name
+            WHERE userid = %s
+            ",
+            $username
+        )
+    );
+    $is_leader = false;
+
+    if( $leader == NULL ){
+        $is_leader = false;
+    }else{
+        $is_leader = true;
+    }
+
+    if( $is_leader ){
 ?>
+<p> <?php echo "Hello, " . $leader->first_name . " " . $leader->last_name . "!" ?> </p>
 
-			<div id="content" class="clearfix row-fluid">
+<div id="content" class="clearfix row-fluid">
 			
 				<div id="main" class="span8 clearfix" role="main">
 
@@ -112,9 +136,19 @@ It really should be impossible to get here, to be honest.
 			</div> <!-- end #content -->
 
 
+
 <?php
+    } else {
+?>
+Not a leader? Shoo!
+<?php
+    } // is_leader
 }
 ?>
+            </div><!-- #content -->
+        </div><!-- #primary -->
 
+
+<?php get_sidebar(); ?>
 
 <?php get_footer(); ?>
