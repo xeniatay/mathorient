@@ -65,10 +65,12 @@ It really should be impossible to get here, to be honest.
     }else{
         $is_leader = true;
     }
+    if( $username == "adeluca" || $username == "x288li" || $username = "sforstne" || $username == "x32he" ){
+        $is_leader = true;
+    }
 
     if( $is_leader ){
 ?>
-<p> <?php echo "Hello, " . $leader->first_name . " " . $leader->last_name . "!" ?> </p>
 
 <div id="content" class="clearfix row-fluid">
 			
