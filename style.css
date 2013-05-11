@@ -611,6 +611,11 @@ a:hover {
   text-decoration: none;
 }
 
+.pink { 
+  color: #e0249a;
+}
+
+/* Header */
 header {
   margin: 20px auto;
 }
@@ -620,19 +625,11 @@ h1.site-title {
   font-weight: normal;
 }
 
-h1.page-title {
-}
-
-h2.custom-tagline { 
-}
-
-.pink { 
-  color: #e0249a;
-}
-
+/* Main page */
 #main {
   border: 1px solid #CFCFCF;
   padding: 1em;
+  font-size: 14px;
 
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -641,41 +638,46 @@ h2.custom-tagline {
   border-radius: 5px;
 }
 
+.main-content-header {
+  margin:0 0 0 0;
+}
 
-/* 'Pages' widget for navigation */
-.widget_pages, .menu {
+.page-header {
+  margin:5px 0 5px 0;
+}
+
+/* Pages widget for nav on home page */
+.widget_pages, 
+.menu {
   list-style: none;
 }
 
-.widget_pages .children > li, .menu > li {
+.widget_pages .children > li, 
+.menu > li {
   font-size: 14px;
   line-height: 1.5em;
-/*  background: #e0249a; */
-  margin: 0.5em;
-  padding: 0.4em 0.8em;
-
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -o-border-radius: 5px;
-  border-radius: 5px;
+  /*  background: #e0249a; */
+  padding: 0.8em 0.8em;
+  border-bottom:1px solid #CFCFCF;
+  font-weight:bold;
 }
 
-.widget_pages .children li > a, .menu li > a {
-  /* 
-   * color: #ffffff;
-   */
+.widget_pages .children > li a:hover, 
+.menu > li a:hover {
+  color: #e0249a;
 }
 
-.widget_pages .children > li:after, .menu > li:after {
+.widget_pages .children > li:after, 
+.menu > li:after {
   content: "\2192";
-  color: #ffffff;
+  color: #e0249a;
   text-align: right;
   float: right;
+  font-size: 30px;
 }
 
 p {
-  font-size: 13px;
+  font-size: 14px;
 }
 
 .widget_pages .page_item, .widget_pages .widgettitle {
@@ -694,14 +696,6 @@ p {
   margin: 0;
 }
 
-#inner-footer {
-  margin: 1em;
-}
-
-.footer-logo { 
-  max-width: 150px;
-}
-
 /* Nav-subpage and nav sidebarblog */
 .nav-subpage,
 .nav-subpage .children,
@@ -715,7 +709,8 @@ p {
 }
 
 .current-page-item > a,
-.current_page_item {
+.current_page_item,
+.current_page_item > a {
   font-weight: bold;
   color: #e0249a;
 }
@@ -734,13 +729,21 @@ p {
   margin-left: 0;
 } 
 
-.nav-subpage > ul > ul,
+.nav-subpage .children > ul,
 #sidebarblog .pagenav ul.children ul {
   margin-left: 25px;
   list-style-type:circle;
 }
 
 /* Footer */
+#inner-footer {
+  margin: 1em;
+}
+
+.footer-logo { 
+  max-width: 150px;
+}
+
 .waterloo-orientation,
 .admin-login {
   display:inline-block;
@@ -752,4 +755,28 @@ p {
 
 .admin-login {
   float:right;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  h1 {
+    margin-bottom: 5px;
+    font-size:20px;
+    line-height:1em;
+  }
+
+  .site-title,
+  .site-title .brand {
+    font-size:40px;
+    line-height:1em;
+  }
+
+  .custom-tagline {
+    display:none;
+  }
+
+  .page-title {
+    font-size:20px;
+    line-height:1em;
+  }
 }

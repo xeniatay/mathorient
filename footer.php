@@ -8,7 +8,7 @@
                 </a>
               </div>
               <div class="admin-login">
-                <a href="http://orientation.uwaterloo.ca/wp/wp-admin" title="Admin Login">
+                <a href="<?php echo home_url(); ?>/wp-admin" title="Admin Login">
                   Login (Admin)
                 </a>
               </div>
