@@ -4,19 +4,8 @@ Template Name: Leader Protected Blog Post Template
  */
 ?>
 <?php
-if( !$cas_configured ){
-    $cas_configured;
-    $_cas_directory = '/users/mathorient/util/cas/';
-    require_once( $_cas_directory . 'CAS.php' );
-
-    phpCAS::client(
-        CAS_VERSION_2_0,
-        'cas.uwaterloo.ca',
-        443,
-        '/cas'
-    );
-    phpCAS::setCasServerCACert( '/var/lib/cas/globalsignchain.crt' );
-}
+include_once("cas-functions.php");
+casInit(); 
 phpCAS::forceAuthentication();
 ?>
 
@@ -45,29 +34,7 @@ It really should be impossible to get here, to be honest.
 } else {
     $username = phpCAS::getUser();
 
-
-    global $wpdb;
-    $table_name = $wpdb->prefix . "leaders";
-
-    $leader = $wpdb->get_row(
-        $wpdb->prepare(
-            "SELECT *
-            FROM $table_name
-            WHERE userid = %s
-            ",
-            $username
-        )
-    );
-    $is_leader = false;
-
-    if( $leader == NULL ){
-        $is_leader = false;
-    }else{
-        $is_leader = true;
-    }
-    if( $username == "adeluca" || $username == "x288li" || $username = "sforstne" || $username == "x32he" ){
-        $is_leader = true;
-    }
+    $is_leader = mayViewLeaderPage($username);
 
     if( $is_leader ){
 ?>
@@ -142,7 +109,7 @@ It really should be impossible to get here, to be honest.
 <?php
     } else {
 ?>
-Not a leader? Shoo!
+<p> Not a leader? Shoo! </p>
 <?php
     } // is_leader
 }

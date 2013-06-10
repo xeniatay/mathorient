@@ -780,3 +780,12 @@ p {
     line-height:1em;
   }
 }
+
+/* Social Media buttons */
+.fb-like-box {
+  margin-left: 25px;
+}
+
+.twitter-follow-button {
+  margin-left:35px;
+}
