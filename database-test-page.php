@@ -21,7 +21,7 @@ $leaders = $wpdb->get_results(
     "
 );
 
-foreach ( $leaders as $leader) 
+foreach ( $leaders as $leader)
 {
     echo $leader->userid;
     echo "<br />";
@@ -31,7 +31,5 @@ foreach ( $leaders as $leader)
 			</div><!-- #content -->
 		</div><!-- #primary -->
 
-
-<?php get_sidebar(); ?>
 
 <?php get_footer(); ?>

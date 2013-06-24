@@ -61,6 +61,4 @@ It really should be impossible to get here, to be honest.
 		</div><!-- #primary -->
 
 
-<?php get_sidebar(); ?>
-
 <?php get_footer(); ?>

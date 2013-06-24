@@ -3,89 +3,34 @@
 Template Name: Leader Protected Blog Post Template
  */
 ?>
-<?php
-    $logged_in = TRUE;
-    $is_leader = TRUE;
-
-/* UNCOMMENT ON LIVE SITE */
-/*
-    $logged_in = FALSE;
-    $is_leader = FALSE;
-    if( !$cas_configured ){
-        $cas_configured;
-        $_cas_directory = get_template_directory_uri() . '/cas/';
-        require_once( $_cas_directory . 'CAS.php' );
-
-        phpCAS::client(
-            CAS_VERSION_2_0,
-            'cas.uwaterloo.ca',
-            443,
-            '/cas'
-        );
-        phpCAS::setCasServerCACert( '/var/lib/cas/globalsignchain.crt' );
-    }
-
-    phpCAS::forceAuthentication();
-
-    // User is logged in
-    if ( phpCAS::isAuthenticated() ) {
-        $logged_in = TRUE;
-        $username = phpCAS::getUser();
-
-        global $wpdb;
-        $table_name = $wpdb->prefix . "leaders";
-
-        $leader = $wpdb->get_row(
-            $wpdb->prepare(
-                "SELECT *
-                FROM $table_name
-                WHERE userid = %s
-                ",
-                $username
-            )
-        );
-
-        $is_leader == ( $leader == NULL ) ? false : true;
-
-        // Special cases
-        if ( $username == "adeluca" || $username == "x288li" ||
-             $username = "sforstne" || $username == "x32he" ||
-             $username == "xzytay" ) {
-            $is_leader = true;
-        }
-    }
-//*/
-?>
-
 
 <?php get_header(); ?>
 
-    <? if (!$logged_in): ?>
-        <div class="not-logged-in"> Please Log In to view this page. </div>
-    <? elseif ($logged_in && $is_leader): ?>
-        <section class="posts-container">
+    <? if ( ! is_leader() ): ?>
+        <div class="not-logged-in"> Only Math Orientation 2013 leaders are allowed to view this page. Please log in with your Quest id!</div>
+    <? else: ?>
+        <section class="posts-container clearfix">
+            <?php $c = 0; ?>
             <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-            <article id="post-<?php the_ID(); ?>" class="single=post" role="article">
-                <header class="single-post-header">
-                    <h3 class="post-title">
+            <article id="post-<?php the_ID(); ?>" class="single-post <?php echo $c++&1 ? 'even' : 'odd'; ?>" role="article">
+                <header class="post-header">
+                    <p class="metadata">
+                        <time datetime="<?php echo the_time('l, Y/m/d g:ia'); ?>" pubdate><?php the_date('d M, Y'); ?></time>
+                        | By <?php the_author_posts_link(); ?>
+                    </p>
+                    <h3 class="post-title content-title">
                         <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
                             <?php the_title(); ?>
                         </a>
-                    </h1>
-
-                    <p class="metadata">
-                        Posted
-                        <time datetime="<?php echo the_time('l, Y/m/d g:ia'); ?>" pubdate><?php the_date('l, Y/m/d \a\t g:ia'); ?></time>
-                        by <?php the_author_posts_link(); ?>.
-                    </p>
+                    </h3>
                 </header>
-                <p class="single-post-content">
+                <div class="post-content clearfix">
                     <?php the_content( __("Read more &raquo;","bonestheme") ); ?>
-                </p>
+                </div>
             </article>
             <?php endwhile; ?>
 
-            <section class="pagination">
+            <section class="pagination pull-right">
 
                 <?php if (function_exists('page_navi')): // if expirimental feature is active ?>
                 <?php page_navi(); // use the page navi function ?>
@@ -101,21 +46,20 @@ Template Name: Leader Protected Blog Post Template
             </section>
 
             <?php else : ?>
-            <article class="post-not-found" class="single=post" role="article">
-                <header class="single-post-header">
-                    <h3 class="post-title">
+            <article class="post-not-found" class="single-post" role="article">
+                <header class="post-header">
+                    <h3 class="post-title content-title">
                         Post not found
-                    </h1>
+                    </h3>
                 </header>
-                <p class="single-post-content">
+                <div class="post-content-error">
                     Sorry, the requested content was not found.
-                </p>
+                </div>
             </article>
             <?php endif; ?>
 
         </section>
 
-        <?php get_sidebar('sidebarblog'); // sidebar 2 ?>
-        <?php get_sidebar(); ?>
-        <?php get_footer(); ?>
     <? endif; ?>
+
+    <?php get_footer(); ?>

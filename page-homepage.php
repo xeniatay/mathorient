@@ -5,9 +5,9 @@ Template Name: Homepage
 ?>
 
 <?php get_header(); ?>
-			
+
 			<div id="content" class="clearfix row-fluid">
-			
+
 				<div id="main-container" class="span12 clearfix" role="main">
 
 					<?php
@@ -44,7 +44,7 @@ Template Name: Homepage
 					                <p>
 					                	<?php
 					                		$excerpt_length = 100; // length of excerpt to show (in characters)
-					                		$the_excerpt = get_the_excerpt(); 
+					                		$the_excerpt = get_the_excerpt();
 					                		if($the_excerpt != ""){
 					                			$the_excerpt = substr( $the_excerpt, 0, $excerpt_length );
 					                			echo $the_excerpt . '... ';
@@ -69,47 +69,45 @@ Template Name: Homepage
 				    <?php } // ends the if use carousel statement ?>
 
 					<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-					
+
 					<article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?> role="article">
-					
+
 						<header>
 
-							<?php 
+							<?php
 								$post_thumbnail_id = get_post_thumbnail_id();
-								$featured_src = wp_get_attachment_image_src( $post_thumbnail_id, 'wpbs-featured-home' ); 
+								$featured_src = wp_get_attachment_image_src( $post_thumbnail_id, 'wpbs-featured-home' );
 								// not sure why this isn't working yet
 							?>
 						</header>
-						
+
 						<section class="row-fluid post_content">
-						
+
 							<div id="main" class="main span8">
-						
+
 								<?php the_content(); ?>
-								
+
 							</div>
-							
-							<?php get_sidebar('sidebar2'); // sidebar 2 ?>
-													
+
 						</section> <!-- end article header -->
-						
+
 						<footer>
-			
+
 							<p class="clearfix"><?php the_tags('<span class="tags">' . __("Tags","bonestheme") . ': ', ', ', '</span>'); ?></p>
-							
+
 						</footer> <!-- end article footer -->
-					
+
 					</article> <!-- end article -->
-					
-					<?php 
+
+					<?php
 						// No comments on homepage
 						//comments_template();
 					?>
-					
-					<?php endwhile; ?>	
-					
+
+					<?php endwhile; ?>
+
 					<?php else : ?>
-					
+
 					<article id="post-not-found">
 					    <header>
 					    	<h1><?php _e("Not Found", "bonestheme"); ?></h1>
@@ -120,13 +118,11 @@ Template Name: Homepage
 					    <footer>
 					    </footer>
 					</article>
-					
+
 					<?php endif; ?>
-			
+
 				</div> <!-- end #main -->
-    
-				<?php //get_sidebar(); // sidebar 1 ?>
-    
+
 			</div> <!-- end #content -->
 
 <?php get_footer(); ?>
