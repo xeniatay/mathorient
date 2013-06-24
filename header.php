@@ -1,22 +1,22 @@
-<!doctype html>  
+<!doctype html>
 
 <!--[if IEMobile 7 ]> <html <?php language_attributes(); ?>class="no-js iem7"> <![endif]-->
 <!--[if lt IE 7 ]> <html <?php language_attributes(); ?> class="no-js ie6"> <![endif]-->
 <!--[if IE 7 ]>    <html <?php language_attributes(); ?> class="no-js ie7"> <![endif]-->
 <!--[if IE 8 ]>    <html <?php language_attributes(); ?> class="no-js ie8"> <![endif]-->
 <!--[if (gte IE 9)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html <?php language_attributes(); ?> class="no-js"><!--<![endif]-->
-	
+
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		
+
 		<title>
 			<?php if ( !is_front_page() ) { echo wp_title( ' ', true, 'left' ); echo ' | '; }
-			echo bloginfo( 'name' ); echo ' - '; bloginfo( 'description', 'display' );  ?> 
+			echo bloginfo( 'name' ); echo ' - '; bloginfo( 'description', 'display' );  ?>
 		</title>
-				
+
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		
+
 		<!-- icons & favicons -->
 		<!-- For iPhone 4 -->
 		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo get_template_directory_uri(); ?>/library/images/icons/h/apple-touch-icon.png">
@@ -28,17 +28,17 @@
 		<link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/library/images/icons/l/apple-touch-icon.png">
 		<!-- For everything else -->
 		<link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/favicon.ico">
-				
+
 		<!-- media-queries.js (fallback) -->
 		<!--[if lt IE 9]>
-			<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>			
+			<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
 		<![endif]-->
 
 		<!-- html5.js -->
 		<!--[if lt IE 9]>
 			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
-		
+
   		<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
 
       <!-- Fonts -->
@@ -56,12 +56,12 @@
 		<!-- theme options from options panel -->
 		<?php //get_wpbs_theme_options(); ?>
 
-		<?php 
+		<?php
 
 			// check wp user level
-			get_currentuserinfo(); 
+			get_currentuserinfo();
 			// store to use later
-			global $user_level; 
+			global $user_level;
 
 			// get list of post names to use in 'typeahead' plugin for search bar
 			if(of_get_option('search_bar', '1')) { // only do this if we're showing the search bar in the nav
@@ -100,42 +100,36 @@
       ga('create', 'UA-40782149-1', 'uwaterloo.ca');
       ga('send', 'pageview');
 
-    </script>  
+    </script>
+
 	</head>
-	
+
 	<body <?php body_class(); ?>>
-				
 		<div class="container-fluid">
-      <header role="banner" class="row-fluid">
-        <div class="inner-header span8">
-          <h1 class="page-title">
-            <?php if (is_home()) : wp_title('');
-                  else : the_title();
-                  endif; ?>
-          </h1>
-          </h1>
-          <h2 class="custom-tagline">
-            <?php echo get_post_meta($post->ID, 'custom_tagline' , true);?>
-          </h2>
+            <div class="row-fluid">
+                <header role="page-header" class="span8 pull-right">
+                    <h2 class="page-title">
+                        <?php if (is_home()) : wp_title('');
+                        else : the_title();
+                        endif; ?>
+                    </h2>
+                    <h1 class="site-title">
+                        <a title="<?php echo get_bloginfo('description'); ?>" href="<?php echo home_url(); ?>">
+                            <span class="pink">Math</span> Orientation
+                        </a>
+                    </h1>
 
-          <h1 class="site-title">
-            <a class="brand" id="logo" title="<?php echo get_bloginfo('description'); ?>" href="<?php echo home_url(); ?>">
-              <span class="pink">Math </span>
-              <span>Orientation</span>
-            </a>
-          </h1>
+                    <div class="nav-collapse">
+                        <?php bones_main_nav(); // Adjust using Menus in Wordpress Admin ?>
+                      </div>
 
-          <div class="nav-collapse">
-            <?php bones_main_nav(); // Adjust using Menus in Wordpress Admin ?>
-          </div>
-          
-          <?php if(of_get_option('search_bar', '1')) {?>
-        </div> <!-- end #inner-header -->
-        <form class="navbar-search pull-right span3" role="search" method="get" id="searchform" action="<?php echo home_url( '/' ); ?>">
-          <input name="s" id="s" type="text" class="search-query" autocomplete="off" placeholder="<?php _e('Search','bonestheme'); ?>" data-provide="typeahead" data-items="4" data-source='<?php echo $typeahead_data; ?>'>
-        </form>
-        <?php } ?>
-      </header> <!-- end header -->
-    </div>
-		
-		<div class="container-fluid">
+                      <?php if(of_get_option('search_bar', '1')) {?>
+                    </div> <!-- end #inner-header -->
+
+                    <form class="navbar-search pull-right span3" role="search" method="get" id="searchform" action="<?php echo home_url( '/' ); ?>">
+                      <input name="s" id="s" type="text" class="search-query" autocomplete="off" placeholder="<?php _e('Search','bonestheme'); ?>" data-provide="typeahead" data-items="4" data-source='<?php echo $typeahead_data; ?>'>
+                    </form>
+                    <?php } ?>
+                </header> <!-- end header -->
+
+                <section class="body-content span8 pull-right">

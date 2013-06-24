@@ -1,46 +1,32 @@
-			<footer role="contentinfo">
-			
-				<div id="inner-footer" class="clearfix">
-		          <hr />
-              <div class="waterloo-orientation">
-                <a href="http://orientation.uwaterloo.ca" title="http://orientation.uwaterloo.ca">
-                  <img class="footer-logo" src="/images/waterloo_orientation.png">
-                </a>
-              </div>
-              <div class="admin-login">
-                <a href="<?php echo home_url(); ?>/wp-admin" title="Admin Login">
-                  Login (Admin)
-                </a>
-              </div>
-		          <div id="widget-footer" class="clearfix row-fluid">
-		            <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('footer1') ) : ?>
-		            <?php endif; ?>
-		            <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('footer2') ) : ?>
-		            <?php endif; ?>
-		            <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('footer3') ) : ?>
-		            <?php endif; ?>
-		          </div>
+			<footer role="page-footer span8 pull-right">
 
-				
-					<nav class="clearfix">
-						<?php bones_footer_links(); // Adjust using Menus in Wordpress Admin ?>
-					</nav>
-					
-					<!-- <p class="pull-right"><a href="http://320press.com" id="credit320" title="By the dudes of 320press">320press</a></p> -->
-			
-				</div> <!-- end #inner-footer -->
-				
+                <hr/>
+                <div class="waterloo-logo-container pull-left">
+
+                    <a href="http://orientation.uwaterloo.ca" title="http://orientation.uwaterloo.ca">
+                        <img class="waterloo-logo" src="<?php echo get_template_directory_uri(); ?>/images/waterloo_orientation.png">
+                    </a>
+
+                </div>
+                <div class="copyright pull-right">
+
+                    <p>&copy; Math Orientation 2013</p>
+                    <p>Theme by Xenia Tay and Theo Belaire</p>
+
+                </div>
+
 			</footer> <!-- end footer -->
-		
-		</div> <!-- end #container -->
-				
-		<!--[if lt IE 7 ]>
-  			<script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
-  			<script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
-		<![endif]-->
-		
-		<?php wp_footer(); // js scripts are inserted using this function ?>
 
-	</body>
+		</div> <!-- end .row-fluid -->
 
+    </div> <!-- end .container-fluid -->
+
+	<!--[if lt IE 7 ]>
+			<script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+			<script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+	<![endif]-->
+
+	<?php wp_footer(); // js scripts are inserted using this function ?>
+
+</body>
 </html>
