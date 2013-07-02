@@ -4,48 +4,27 @@ Template Name: CAS Protected Page Template
 */
 ?>
 <?php
-if( !$cas_configured ){
-    $cas_configured;
-    $_cas_directory = '/users/mathorient/util/cas/';
-    require_once( $_cas_directory . 'CAS.php' );
+//include_once('/users/mathorient/www/wp/wp-content/themes/mathorient/cas-functions.php');
+include_once('cas-functions.php');  // I think relative path works
+$is_leader = leaderProtectPage();
 
-    phpCAS::client(
-        CAS_VERSION_2_0,
-        'cas.uwaterloo.ca',
-        443,
-        '/cas'
-        );
-    phpCAS::setCasServerCACert( '/var/lib/cas/globalsignchain.crt' );
-    }
-phpCAS::forceAuthentication();
+/*
+$l = lookupLeader("rl2ye");
+if ($l != null){
+    die("not null");
+} else if ($l == null){
+    die("Null");
+} else {
+    die("other");
+}*/
 ?>
 
 
 <?php get_header(); ?>
 
 		<div id="primary">
-			<div id="content" role="main">
-<?php
-
-// If user isn't authenticated, tell them they need to login to check
-if( ! phpCAS::isAuthenticated() ) {
-
-?>
-
-<div>
-Please Log In to view this page.
-
-It really should be impossible to get here, to be honest.
-</div>
-
-
-<?php
-
-// User is already logged in
-} else {
-
-    echo 'You are ' . phpCAS::getUser();
-?>
+            <div id="content" role="main">
+            <?php if($is_leader){ ?>
                 <?php while ( have_posts() ) : the_post(); ?>
 
 					<?php get_template_part( 'content', 'page' ); ?>
@@ -53,10 +32,9 @@ It really should be impossible to get here, to be honest.
 					<?php comments_template( '', true ); ?>
 
 				<?php endwhile; // end of the loop. ?>
-
-<?php
-}
-?>
+            <?php }else{ ?>
+                <p> You are not a leader </p>
+            <?php } ?>
 			</div><!-- #content -->
 		</div><!-- #primary -->
 

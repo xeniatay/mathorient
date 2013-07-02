@@ -5,51 +5,16 @@ Template Name: CAS Protected Blog Post Template
 ?>
 
 <?php
-if( !$cas_configured ){
-    $cas_configured = true;
-    $_cas_directory = '/users/mathorient/util/cas/';
-    require_once( $_cas_directory . 'CAS.php' );
-
-    phpCAS::client(
-        CAS_VERSION_2_0,
-        'cas.uwaterloo.ca',
-        443,
-        '/cas'
-    );
-    phpCAS::setCasServerCACert( '/var/lib/cas/globalsignchain.crt' );
-}
-phpCAS::forceAuthentication();
+include_once('cas-functions.php');
+$is_leader = leaderProtectPage();
 ?>
-
 
 <?php get_header(); ?>
-
-<?php
-
-// If user isn't authenticated, tell them they need to login to check
-if( ! phpCAS::isAuthenticated() ) {
-
-?>
-
-<div>
-Please Log In to view this page.
-
-It really should be impossible to get here, to be honest.
-</div>
-
-
-<?php
-
-// User is already logged in
-} else {
-
-    echo 'Hello, ' . phpCAS::getUser();
-?>
 
 			<div id="content" class="clearfix row-fluid">
 			
 				<div id="main" class="span8 clearfix" role="main">
-
+                <?php if($is_leader){ ?>
 					<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 					
 					<article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?> role="article">
@@ -104,17 +69,16 @@ It really should be impossible to get here, to be honest.
 					    </footer>
 					</article>
 					
-					<?php endif; ?>
+                    <?php endif; ?>
+<?php } else { // Not a leader ?>
+    <p> You are not a leader </p>
+<?php } ?>
 			
 				</div> <!-- end #main -->
         <?php get_sidebar('sidebarblog'); // sidebar 2 ?>
     
-			</div> <!-- end #content -->
+            </div> <!-- end #content -->
 
-
-<?php
-}
-?>
 
 
 <?php get_footer(); ?>

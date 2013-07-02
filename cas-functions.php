@@ -37,29 +37,29 @@ function lookupLeader($username)
 function mayViewLeaderPage($username)
 {
     // FOC special case.
-    if( $username == "adeluca" || $username == "x288li" || $username = "sforstne" || $username == "x32he" ){
+    if( $username == "adeluca" || $username == "x288li" || $username == "sforstne" || $username == "x32he" ){
         return true;
     }
     $leader = lookupLeader($username);
-    $is_leader = false;
 
-    if( $leader == NULL ){
-        $is_leader = false;
-    }else{
-        $is_leader = true;
+    if( $leader != null ){
+        return true;
+    } else {
+        return false;
     }
-    return $is_leader;
 }
 
 function leaderProtectPage()
 {
     // This function could be called in the header to protect a page
     // and return true if the user may view it.
-    // Not used right now
     casInit();
     phpCAS::forceAuthentication();
     $username = phpCAS::getUser();
     $is_leader = mayViewLeaderPage($username);
     return $is_leader;
+/*    if (!$is_leader){
+        die("You don't seem to be a leader.  Only leaders may view this page.  If this is in error, and you are a leader, the website volunteer team will be happy to fix it.");
+}*/
 }
 ?>
