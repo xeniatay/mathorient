@@ -9,9 +9,11 @@
                         <?php
                         // If page is a subpage of/is the Leader (blogpost) page
                         if ( is_home() || is_topmost_parent(39) || is_single() ) {
-                            dynamic_sidebar( 'blog' );
+                            dynamic_sidebar( 'leader' );
                         } else if ( is_front_page() ) {
                             dynamic_sidebar( 'home' );
+                        } else if ( is_topmost_parent(5) ) {
+                            dynamic_sidebar( 'new-students' );
                         } else {
                             dynamic_sidebar( 'main' );
                         }

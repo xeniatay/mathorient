@@ -68,7 +68,7 @@ function bones_register_sidebars() {
     register_sidebar(array(
     	'id' => 'main',
     	'name' => 'Main Sidebar',
-    	'description' => 'Used on every page except home and blog page',
+    	'description' => 'Used on every page except home and leader page',
     	'before_widget' => '<div id="%1$s" class="widget %2$s">',
     	'after_widget' => '</div>',
     	'before_title' => '<h4 class="widgettitle">',
@@ -86,9 +86,19 @@ function bones_register_sidebars() {
     ));
 
     register_sidebar(array(
-        'id' => 'blog',
-        'name' => 'Blog Sidebar',
-        'description' => 'Shown only on blog post page',
+        'id' => 'new-students',
+        'name' => 'New Students Sidebar',
+        'description' => 'Shown only on new students page',
+        'before_widget' => '<div id="%1$s" class="widget %2$s">',
+        'after_widget' => '</div>',
+        'before_title' => '<h4 class="widgettitle">',
+        'after_title' => '</h4>',
+    ));
+
+    register_sidebar(array(
+        'id' => 'leader',
+        'name' => 'Leader Sidebar',
+        'description' => 'Shown only on leader post page',
         'before_widget' => '<div id="%1$s" class="widget %2$s">',
         'after_widget' => '</div>',
         'before_title' => '<h4 class="widgettitle">',
