@@ -418,6 +418,7 @@ a.pink:hover {
     .sub-menu > li > a {
         background-color:#2f2f2f;
         padding:5px 15px;
+        margin:8px 0 8px 0;
     }
 
 }
