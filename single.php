@@ -4,9 +4,14 @@ Leader Protected - Single Post
 */
 ?>
 
+<?php
+include_once('cas-functions.php');
+$is_leader = leaderProtectPage();
+?>
+
 <?php get_header(); ?>
 
-    <? if ( ! is_leader() ): ?>
+    <? if ( !$is_leader ): ?>
         <div class="not-logged-in"> Only Math Orientation 2013 leaders are allowed to view this page. Please log in with your Quest id!</div>
     <? else: ?>
         <section class="posts-container clearfix">
