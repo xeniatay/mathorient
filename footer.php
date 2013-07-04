@@ -18,7 +18,7 @@
                             &nbsp;and Theo Belaire
                         </p>
                         <p>
-                            <a class="login-admin" href="<?php echo home_url; ?>/wp-admin">Login (admin)</a>
+                            <a class="login-admin" href="<?php echo home_url(); ?>/wp-admin">Login (admin)</a>
                         </p>
                     </div>
 
