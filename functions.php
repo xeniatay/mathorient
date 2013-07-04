@@ -675,68 +675,6 @@ function is_subpage() {
   }
 }
 
-function is_cas_logged_in() {
-    if( !$cas_configured ){
-        $cas_configured;
-        $_cas_directory = get_template_directory_uri() . '/cas/';
-        require_once( $_cas_directory . 'CAS.php' );
-
-        phpCAS::client(
-            CAS_VERSION_2_0,
-            'cas.uwaterloo.ca',
-            443,
-            '/cas'
-        );
-
-        // Cannot be found locally
-        phpCAS::setCasServerCACert( '/var/lib/cas/globalsignchain.crt' );
-    }
-
-    phpCAS::forceAuthentication();
-
-    // User is logged in
-    if ( phpCAS::isAuthenticated() ) {
-        return TRUE;
-    } else {
-        return FALSE;
-    }
-}
-
-function is_leader() {
-    $is_leader = TRUE;
-    /* UNCOMMENT ON LIVE SITE */
-    /*
-    $is_leader = FALSE;
-    if ( is_cas_logged_in() ) {
-        $username = phpCAS::getUser();
-
-        global $wpdb;
-        $table_name = $wpdb->prefix . "leaders";
-
-        $leader = $wpdb->get_row(
-            $wpdb->prepare(
-                "SELECT *
-                FROM $table_name
-                WHERE userid = %s
-                ",
-                $username
-            )
-        );
-
-        $is_leader == ( $leader == NULL ) ? FALSE : TRUE;
-
-        // Special cases
-        if ( $username == "adeluca" || $username == "x288li" ||
-             $username = "sforstne" || $username == "x32he" ||
-             $username == "xzytay" ) {
-            $is_leader = TRUE;
-        }
-    }
-    //*/
-
-    return $is_leader;
-}
-
 /* Check if topmost parent of a page is the given $pid */
 function is_topmost_parent($pid) {
     global $post;
