@@ -503,8 +503,9 @@ a.pink:hover {
 
 /* iphone portrait */
 @media (max-width:479px) {
-    .waterloo-logo {
-        max-width:100px;
+    .waterloo-logo-container {
+        float:right;
+        margin:10px 0 20px 0;
     }
 }
 
