@@ -482,6 +482,7 @@ function theme_js(){
 
   wp_register_script('wpbs-scripts', get_template_directory_uri().'/library/js/scripts.js');
   wp_register_script('modernizr', get_template_directory_uri().'/library/js/modernizr.full.min.js');
+  wp_register_script('main', get_template_directory_uri().'/main.js');
 
   // wp_enqueue_script('less', array(''), '1.3.0', true);
   wp_enqueue_script('jquery');
@@ -499,6 +500,7 @@ function theme_js(){
   // wp_enqueue_script('bootstrap-typeahead', array('jQuery'), '1.1', true);
   wp_enqueue_script('wpbs-scripts', array('jQuery'), '1.1', true);
   wp_enqueue_script('modernizr', array('jQuery'), '1.1', true);
+  wp_enqueue_script('main');
 }
 add_action('wp_enqueue_scripts', 'theme_js');
 
@@ -733,6 +735,21 @@ function is_leader() {
     //*/
 
     return $is_leader;
+}
+
+/* Check if topmost parent of a page is the given $pid */
+function is_topmost_parent($pid) {
+    global $post;
+    if ($post->post_parent) {
+        $ancestors=get_post_ancestors($post->ID);
+        $root=count($ancestors)-1;
+        $parent = $ancestors[$root];
+    } else {
+        $parent = $post->ID;
+    }
+
+    return $parent === $pid;
+
 }
 
 ?>

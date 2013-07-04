@@ -1,66 +1,50 @@
+<?php
+/*
+Leader Protected - Single Post
+*/
+?>
+
 <?php get_header(); ?>
 
-			<div id="content" class="clearfix row-fluid">
+    <? if ( ! is_leader() ): ?>
+        <div class="not-logged-in"> Only Math Orientation 2013 leaders are allowed to view this page. Please log in with your Quest id!</div>
+    <? else: ?>
+        <section class="posts-container clearfix">
+            <?php if (have_posts()): ?>
+                <?php while (have_posts()) : the_post(); ?>
+                <article id="post-<?php the_ID(); ?>" class="single-post" role="article">
+                    <header class="post-header">
+                        <p class="metadata">
+                            <time datetime="<?php echo the_time('l, Y/m/d g:ia'); ?>" pubdate><?php the_date('d M, Y'); ?></time>
+                            | By <?php the_author_posts_link(); ?>
+                        </p>
+                        <h3 class="post-title content-title">
+                            <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
+                                <?php the_title(); ?>
+                            </a>
+                        </h3>
+                    </header>
+                    <div class="post-content clearfix">
+                        <?php the_content( __("Read more &raquo;","bonestheme") ); ?>
+                    </div>
+                </article>
+                <?php endwhile; ?>
 
-				<div id="main" class="span8 clearfix" role="main">
+            <?php else : ?>
+                <article class="post-not-found" class="single-post" role="article">
+                    <header class="post-header">
+                        <h3 class="post-title content-title">
+                            Post not found
+                        </h3>
+                    </header>
+                    <div class="post-content-error">
+                        Sorry, the requested content was not found.
+                    </div>
+                </article>
+            <?php endif; ?>
 
-					<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+        </section>
 
-					<article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <? endif; ?>
 
-						<header>
-
-							<?php the_post_thumbnail( 'wpbs-featured' ); ?>
-
-							<div class="page-header"><h1 class="single-title" itemprop="headline"><?php the_title(); ?></h1></div>
-
-							<p class="meta"><?php _e("Posted", "bonestheme"); ?> <time datetime="<?php echo the_time('Y-m-j'); ?>" pubdate><?php the_date(); ?></time> <?php _e("by", "bonestheme"); ?> <?php the_author_posts_link(); ?> <span class="amp">&</span> <?php _e("filed under", "bonestheme"); ?> <?php the_category(', '); ?>.</p>
-
-						</header> <!-- end article header -->
-
-						<section class="post_content clearfix" itemprop="articleBody">
-							<?php the_content(); ?>
-
-							<?php wp_link_pages(); ?>
-
-						</section> <!-- end article section -->
-
-						<footer>
-
-							<?php the_tags('<p class="tags"><span class="tags-title">' . __("Tags","bonestheme") . ':</span> ', ' ', '</p>'); ?>
-
-							<?php
-							// only show edit button if user has permission to edit posts
-							if( $user_level > 0 ) {
-							?>
-							<a href="<?php echo get_edit_post_link(); ?>" class="btn btn-success edit-post"><i class="icon-pencil icon-white"></i> <?php _e("Edit post","bonestheme"); ?></a>
-							<?php } ?>
-
-						</footer> <!-- end article footer -->
-
-					</article> <!-- end article -->
-
-					<?php comments_template('',true); ?>
-
-					<?php endwhile; ?>
-
-					<?php else : ?>
-
-					<article id="post-not-found">
-					    <header>
-					    	<h1><?php _e("Not Found", "bonestheme"); ?></h1>
-					    </header>
-					    <section class="post_content">
-					    	<p><?php _e("Sorry, but the requested resource was not found on this site.", "bonestheme"); ?></p>
-					    </section>
-					    <footer>
-					    </footer>
-					</article>
-
-					<?php endif; ?>
-
-				</div> <!-- end #main -->
-
-			</div> <!-- end #content -->
-
-<?php get_footer(); ?>
+    <?php get_footer(); ?>

@@ -81,9 +81,9 @@ Template Name: Homepage
 							?>
 						</header>
 
-						<section class="row-fluid post_content">
+						<section class="row-fluid post-content">
 
-							<div id="main" class="main span8">
+							<div id="main" class="main ">
 
 								<?php the_content(); ?>
 
@@ -112,7 +112,7 @@ Template Name: Homepage
 					    <header>
 					    	<h1><?php _e("Not Found", "bonestheme"); ?></h1>
 					    </header>
-					    <section class="post_content">
+					    <section class="post-content">
 					    	<p><?php _e("Sorry, but the requested resource was not found on this site.", "bonestheme"); ?></p>
 					    </section>
 					    <footer>

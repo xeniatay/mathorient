@@ -7,17 +7,19 @@
                         </a>
 
                     </div>
+
                     <div class="copyright pull-right">
 
-                        <p><a href="<?php echo home_url(); ?>" title="Math Orientation" class="pink">
-                            &copy; Math Orientation 2013
-                        </a></p>
                         <p>
-                            Theme by
-                            <a href="http://xeniatay.com" class="pink">Xenia Tay</a>
-                             and Theo Belaire
-                         </p>
-
+                            <a href="<?php echo home_url(); ?>" title="Math Orientation" class="pink">&copy; Math Orientation 2013</a>
+                        </p>
+                        <p>
+                            Theme by <a href="http://xeniatay.com" class="pink">Xenia Tay</a>
+                            &nbsp;and Theo Belaire
+                        </p>
+                        <p>
+                            <a class="login-admin" href="<?php echo home_url; ?>/wp-admin">Login (admin)</a>
+                        </p>
                     </div>
 
                     <?php //get_footer(); ?>

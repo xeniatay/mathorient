@@ -32,7 +32,7 @@
 
 						</header> <!-- end article header -->
 
-						<section class="post_content">
+						<section class="post-content">
 
 							<?php the_post_thumbnail( 'wpbs-featured' ); ?>
 
@@ -68,7 +68,7 @@
 					    <header>
 					    	<h1><?php _e("No Posts Yet", "bonestheme"); ?></h1>
 					    </header>
-					    <section class="post_content">
+					    <section class="post-content">
 					    	<p><?php _e("Sorry, What you were looking for is not here.", "bonestheme"); ?></p>
 					    </section>
 					    <footer>

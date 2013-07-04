@@ -17,7 +17,7 @@
 
 						</header> <!-- end article header -->
 
-						<section class="post_content">
+						<section class="post-content">
 
 							<p>Whatever you were looking for was not found, but maybe try looking again or search using the form below.</p>
 

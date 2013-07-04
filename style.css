@@ -27,17 +27,55 @@ Author:Xenia Tay and Theo Belaire
  *********/
 
 /* layout */
+html,
+body {
+    height:100%;
+}
+
+body > .container-fluid,
+body > .container-fluid > .row-fluid {
+    min-height:100%;
+    height:auto !important;
+    height:100%;
+    margin:0 auto 0; /* the bottom margin is the negative value of the footer's height */
+}
+
 body {
     color:#444444;
     font:12px/1.5 'Droid Sans' sans-serif;
 }
 
+/* iphone */
+@media (max-width:767px) {
+    body {
+        padding:0;
+    }
+}
+
 .container-fluid {
-    background-color:#262525;
+    background-image:-webkit-linear-gradient(
+        left,
+        #262525,
+        #262525 25%,
+        #EFEFEF 25%,
+        #EFEFEF 26%,
+        #FDFDFD 26%
+    );
+}
+
+/* iphone */
+@media (max-width:767px) {
+    .container-fluid {
+        background:#FDFDFD;
+    }
+}
+
+body > .container-fluid > .row-fluid {
+    max-width:1250px;
+    margin:0 auto;
 }
 
 .page-container {
-    background:#FDFDFD;
     height:100%;
     padding:20px 50px 20px 30px;
 }
@@ -69,10 +107,45 @@ a.pink:hover {
     color:#ED1E79;
 }
 
+.show-mobile {
+    display:none !important;
+}
+
+.hide-mobile {
+    display:block !important;
+}
+
+@media (max-width:767px) {
+    .show-mobile {
+        display:block !important;
+    }
+
+    .hide-mobile {
+        display:none !important;
+    }
+}
+
 /* header */
 .page-header {
     text-align:right;
     margin:20px auto;
+}
+
+/* iphone */
+@media (max-width:767px) {
+    .page-header {
+        top:0;
+        left:20px;
+    }
+}
+
+/* iphone */
+@media (max-width:767px) {
+    .page-header {
+        border:none;
+        position:absolute;
+        text-align:left;
+    }
 }
 
 .page-title {
@@ -80,33 +153,307 @@ a.pink:hover {
     color:#222222;
 }
 
+/* iphone portrait */
+@media (max-width:479px) {
+    .page-title {
+        color:#FDFDFD;
+        font-size:16px;
+    }
+}
+
+/* iphone */
+@media (max-width:767px) and (min-width:480px) {
+    .page-title {
+        color:#FDFDFD;
+        font-size:20px;
+    }
+}
+
+/* hamburger navicon */
+.border-menu {
+    height:30px;
+    position:absolute;
+    top:20px;
+    right:20px;
+    padding-right:1.5em;
+    z-index:2;
+}
+
+@media (max-width:767px) {
+    .border-menu {
+        font-size:25px;
+    }
+}
+
+.border-menu:hover {
+    cursor:pointer;
+}
+
+.border-menu:after {
+    content:"";
+    position:absolute;
+    top:0.25em;
+    right:0;
+    width:1em;
+    height:0.125em;
+    border-top:0.375em double #FFF;
+    border-bottom:0.125em solid #FFF;
+}
+
+.border-menu:hover:after {
+    border-top:0.375em double #c20055;
+    border-bottom:0.125em solid #c20055;
+}
+
+.border-menu:active:after {
+    border-top:0.375em double #666;
+    border-bottom:0.125em solid #666;
+}
+
 .site-title {
     font:normal 60px/1 'Droid Sans' sans-serif;
+}
+
+/* iphone portrait */
+@media (max-width:479px) {
+    .site-title {
+        font-size:20px;
+    }
+}
+
+/* iphone */
+@media (max-width:767px) and (min-width:480px) {
+    .site-title {
+        font-size:30px;
+    }
+}
+
+/* iphone */
+@media (max-width:767px) {
+    .site-title > a {
+        color:#FDFDFD;
+    }
 }
 
 /* sidebar */
 .site-sidebar {
     color:#FFFFFF;
-    padding:30px;
+    padding:30px 0;
+    margin-left:20px;
+}
+
+.site-sidebar.show-nav {
+    padding-bottom:20px;
+}
+
+/* iphone portrait */
+@media (max-width:479px) {
+    .site-sidebar {
+        padding:10px 20px;
+        background:#262525;
+        padding-bottom:6.5em;
+    }
+}
+
+/* iphone */
+@media (max-width:767px) and (min-width:480px) {
+    .site-sidebar {
+        padding:20px 20px;
+        background:#262525;
+        padding-bottom:8.5em;
+    }
 }
 
 .site-sidebar a {
     color:#FFFFFF;
 }
 
+.side-sidebar ul {
+    list-style:none;
+}
+
+/* logo */
+.circle {
+    border-radius:50%;
+    border:5px solid #eFefef;
+    background:#FFFFFF;
+    width:70%;
+    height:0;
+    text-align:center;
+    margin-bottom:40px;
+    padding-bottom:70%;
+}
+
+/* iphone portrait */
+@media (max-width:479px) {
+    .circle {
+        display:none;
+    }
+}
+
+/* iphone */
+@media (max-width:767px) {
+    .circle {
+        width:80px;
+        height:80px;
+        padding:0;
+        margin:5px 20px;
+    }
+}
+
+.mathorient-logo {
+    max-width:90%;
+    padding-top:28%;
+}
+
+/* iphone */
+@media (max-width:767px) {
+    .mathorient-logo {
+        margin-top:20px;
+        padding:0;
+    }
+}
+
+/* mobile nav icon */
+.mobile-nav-icon {
+    background-color:#FFFFFF;
+    display:inline-block;
+}
+
+/* social */
+.social-icons-container {
+    margin:20px 0;
+}
+
+.social-icons {
+    list-style:none;
+    margin:15px 0;
+}
+
+.social-icons > li {
+    display:inline-block;
+    margin-right:5px;
+}
+
+/* search */
+.form-search {
+    margin:20px 0;
+}
+
+.search-input,
+.search-input:active,
+.search-input.placeholder,
+.search-btn {
+    font-size:12px;
+}
+
+.search-input {
+    width:110px;
+}
+
+.form-search .input-append .search-btn {
+    -webkit-border-radius:0 3px 3px 0;
+    -moz-border-radius:0 3px 3px 0;
+    border-radius:0 3px 3px 0;
+}
+
+@media (max-width:767px) {
+    .form-search .input-append {
+        width:90%;
+    }
+
+    .search-input {
+        width:100% !important;
+    }
+}
+
+/* customized nav menu inserted by widget */
+.widgettitle {
+    color:#ED1E79;
+}
+
+.menu {
+    margin:5px 0 20px 0;
+    list-style:none;
+}
+
+@media (max-width:767px) {
+    .sidebar-nav {
+        margin-top:7em;
+        border-top:1px solid #666;
+        width:90%;
+        display:none;
+    }
+}
+
+.sub-menu {
+    list-style:none;
+    margin-left:15px;
+    padding-left:10px;
+    border-left:1px solid #666666;
+}
+
+@media (max-width:767px) {
+    .sub-menu {
+        border-left:none;
+        margin-left:0;
+    }
+}
+
+.sidebar-link,
+.menu > li > a,
+.sub-menu > li > a {
+    font-size:13px;
+    font-weight:normal;
+    line-height:1.3em;
+    padding:5px 0px 5px 10px;
+    margin:4px 0 4px -10px;
+    display:block;
+    width:100%;
+}
+
+@media (max-width:767px) {
+    .sidebar-link,
+    .menu > li > a,
+    .sub-menu > li > a {
+        background-color:#2f2f2f;
+        padding:5px 15px;
+    }
+
+}
+
+.sidebar-link:hover,
+.menu > li a:hover {
+    color:#ED1E79;
+    background-color:#2f2f2f;
+}
 
 /* general site content */
+.post-content > h3,
 .content-title {
-    font:bold 28px/1 'Droid Sans' sans-serif;
+    font:bold 28px/1.3 'Droid Sans' sans-serif;
+}
+
+/* iphone portrait */
+@media (max-width:479px) {
+    .post-content > h3,
+    .content-title {
+        font-size:16px;
+    }
+}
+
+/* iphone */
+@media (max-width:767px) and (min-width:480px) {
+    .post-content > h3,
+    .content-title {
+        font-size:20px;
+    }
 }
 
 /* blog */
-.single-post {
-    border-bottom:4px double #CFCFCF;
+.post-single {
+    border-bottom:1px solid #CFCFCF;
     padding:20px 20px 20px 20px;
-}
-
-.single-post.even {
 }
 
 .post-header {
@@ -128,105 +475,20 @@ a.pink:hover {
 }
 
 .more-link {
-    border-top:1px dashed #EFEFEF;
-    border-bottom:1px dashed #EFEFEF;
+    border-top:1px solid #EFEFEF;
+    border-bottom:1px solid #EFEFEF;
     color:#c20055;
     display:block;
     font-size:12px;
     padding:10px;
     margin:20px 0 0 0;
+    margin:5px 0;
     text-align:right;
 }
 
 .more-link:hover {
-    border-top:1px dashed #CFCFCF;
-    border-bottom:1px dashed #CFCFCF;
+    background-color:#EFEFEF;
     color:#222222;
-}
-
-/* Pages widget for nav on home page */
-.widget_pages,
-.menu {
-    list-style:none;
-}
-
-.widget_pages .children > li,
-.menu > li {
-    font-size:14px;
-    line-height:1.5em;
-    /*  background:#ED1E79; */
-    padding:0.8em 0.8em;
-    border-bottom:1px solid #CFCFCF;
-    font-weight:bold;
-}
-
-.widget_pages .children > li a:hover,
-.menu > li a:hover {
-    color:#ED1E79;
-}
-
-.widget_pages .children > li:after,
-.menu > li:after {
-    content:"\2192";
-    color:#ED1E79;
-    text-align:right;
-    float:right;
-    font-size:30px;
-}
-
-.widget_pages .page_item, .widget_pages .widgettitle {
-    display:none;
-}
-
-.widget_pages .current_page_item, .widget_pages .current_page_item .page_item {
-    display:block;
-}
-
-.widget_pages .current_page_item > a {
-    display:none;
-}
-
-.widget_pages .current_page_item ul.children {
-    margin:0;
-}
-
-/* Nav-subpage and nav sidebarblog */
-.nav-subpage,
-.nav-subpage .children,
-#sidebarblog ul {
-    list-style:none;
-}
-
-.nav-subpage li,
-#sidebarblog li {
-    font:17px/28px 'Droid Sans', sans-serif;
-}
-
-.current-page-item > a,
-.current_page_item,
-.current_page_item > a {
-    font-weight:bold;
-    color:#ED1E79;
-}
-
-#sidebarblog > ul > li.pagenav {
-    color:#FFFFFF;
-    margin-top:-35px;
-}
-
-#sidebarblog > ul > li.pagenav > ul {
-    color:#808080;
-}
-
-#sidebarblog .pagenav > ul,
-#sidebarblog .pagenav ul.children {
-    margin-left:0;
-}
-
-.nav-subpage .children > ul,
-#sidebarblog .pagenav ul.children ul {
-    margin-left:25px;
-    list-style-type:circle;
 }
 
 /* footer */
@@ -238,7 +500,19 @@ a.pink:hover {
     max-width:150px;
 }
 
+/* iphone portrait */
+@media (max-width:479px) {
+    .waterloo-logo {
+        max-width:100px;
+    }
+}
+
+.login-admin {
+    font-size:10px;
+}
+
 .copyright > p {
+    text-align:right;
     font-size:10px;
     line-height:1;
 }

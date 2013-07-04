@@ -41,7 +41,7 @@ Template Name: Blog Posts
 
 						</header> <!-- end article header -->
 
-						<section class="post_content clearfix">
+						<section class="post-content clearfix">
 							<?php the_content( __("Read more &raquo;","bonestheme") ); ?>
 						</section> <!-- end article section -->
 
@@ -74,7 +74,7 @@ Template Name: Blog Posts
 					    <header>
 					    	<h1><?php _e("Not Found", "bonestheme"); ?></h1>
 					    </header>
-					    <section class="post_content">
+					    <section class="post-content">
 					    	<p><?php _e("Sorry, but the requested resource was not found on this site.", "bonestheme"); ?></p>
 					    </section>
 					    <footer>

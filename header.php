@@ -87,9 +87,15 @@
             <div class="page-container span9 pull-left">
                 <header class="page-header">
                     <h2 class="page-title">
-                        <?php if (is_home()) : wp_title('');
-                        else : the_title();
-                        endif; ?>
+                        <?php
+                        if (is_home()) {
+                            wp_title('');
+                        } else if (is_single()) {
+                            echo 'Leaders';
+                        } else {
+                            the_title();
+                        }
+                        ?>
                     </h2>
                     <h1 class="site-title">
                         <a title="<?php echo get_bloginfo('description'); ?>" href="<?php echo home_url(); ?>">
@@ -97,17 +103,6 @@
                         </a>
                     </h1>
 
-                    <div class="nav-collapse">
-                        <?php bones_main_nav(); // Adjust using Menus in Wordpress Admin ?>
-                      </div>
-
-                      <?php if(of_get_option('search_bar', '1')) {?>
-                    </div> <!-- end #inner-header -->
-
-                    <form class="navbar-search pull-right span3" role="search" method="get" id="searchform" action="<?php echo home_url( '/' ); ?>">
-                      <input name="s" id="s" type="text" class="search-query" autocomplete="off" placeholder="<?php _e('Search','bonestheme'); ?>" data-provide="typeahead" data-items="4" data-source='<?php echo $typeahead_data; ?>'>
-                    </form>
-                    <?php } ?>
                 </header> <!-- end header -->
 
                 <section class="body-content">

@@ -18,7 +18,7 @@
 
 						</header> <!-- end article header -->
 
-						<section class="post_content">
+						<section class="post-content">
 							<?php the_excerpt('<span class="read-more">' . __("Read more on","bonestheme") . ' "'.the_title('', '', false).'" &raquo;</span>'); ?>
 
 						</section> <!-- end article section -->
@@ -53,7 +53,7 @@
 					    <header>
 					    	<h1><?php _e("Not Found", "bonestheme"); ?></h1>
 					    </header>
-					    <section class="post_content">
+					    <section class="post-content">
 					    	<p><?php _e("Sorry, but the requested resource was not found on this site.", "bonestheme"); ?></p>
 					    </section>
 					    <footer>

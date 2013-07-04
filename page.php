@@ -1,47 +1,37 @@
 <?php get_header(); ?>
 
-			<div id="content" class="clearfix row-fluid">
+	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-				<div id="main" class="span8 clearfix" role="main">
+	<article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
 
-					<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+		<section class="post-content clearfix" itemprop="articleBody">
+			<?php the_content(); ?>
 
-					<article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
+		</section> <!-- end article section -->
 
-						<section class="post_content clearfix" itemprop="articleBody">
-							<?php the_content(); ?>
+		<footer>
 
-						</section> <!-- end article section -->
+			<?php the_tags('<p class="tags"><span class="tags-title">' . __("Tags","bonestheme") . ':</span> ', ', ', '</p>'); ?>
 
-						<footer>
+		</footer> <!-- end article footer -->
 
-							<?php the_tags('<p class="tags"><span class="tags-title">' . __("Tags","bonestheme") . ':</span> ', ', ', '</p>'); ?>
+	</article> <!-- end article -->
 
-						</footer> <!-- end article footer -->
+	<?php endwhile; ?>
 
-					</article> <!-- end article -->
+	<?php else : ?>
 
-					<?php comments_template('',true); ?>
+	<article id="post-not-found">
+	    <header>
+	    	<h1><?php _e("Not Found", "bonestheme"); ?></h1>
+	    </header>
+	    <section class="post-content">
+	    	<p><?php _e("Sorry, but the requested resource was not found on this site.", "bonestheme"); ?></p>
+	    </section>
+	    <footer>
+	    </footer>
+	</article>
 
-					<?php endwhile; ?>
-
-					<?php else : ?>
-
-					<article id="post-not-found">
-					    <header>
-					    	<h1><?php _e("Not Found", "bonestheme"); ?></h1>
-					    </header>
-					    <section class="post_content">
-					    	<p><?php _e("Sorry, but the requested resource was not found on this site.", "bonestheme"); ?></p>
-					    </section>
-					    <footer>
-					    </footer>
-					</article>
-
-					<?php endif; ?>
-
-				</div> <!-- end #main -->
-
-			</div> <!-- end #content -->
+	<?php endif; ?>
 
 <?php get_footer(); ?>
