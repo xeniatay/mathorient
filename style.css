@@ -42,7 +42,7 @@ body > .container-fluid > .row-fluid {
 
 body {
     color:#444444;
-    font:12px/1.5 'Droid Sans' sans-serif;
+    font:13px/1.5 'Droid Sans' sans-serif;
 }
 
 /* iphone */
@@ -81,7 +81,7 @@ body > .container-fluid > .row-fluid {
 }
 
 p {
-    font-size:12px;
+    font-size:13px;
     line-height:1.5;
 }
 
