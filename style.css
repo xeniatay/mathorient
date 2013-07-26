@@ -35,7 +35,6 @@ body {
 body > .container-fluid,
 body > .container-fluid > .row-fluid {
     min-height:100%;
-    height:auto !important;
     height:100%;
     margin:0 auto 0; /* the bottom margin is the negative value of the footer's height */
 }
@@ -63,6 +62,17 @@ body {
     );
 }
 
+@media (min-width:1250px) {
+  .container-fluid {
+    background-image:-webkit-linear-gradient(
+        left,
+        #262525,
+        #262525 50%,
+        #FDFDFD 50%
+    );
+  }
+}
+
 /* iphone */
 @media (max-width:767px) {
     .container-fluid {
@@ -73,6 +83,19 @@ body {
 body > .container-fluid > .row-fluid {
     max-width:1250px;
     margin:0 auto;
+}
+
+@media (min-width:1250px) {
+  body > .container-fluid > .row-fluid {
+    background-image:-webkit-linear-gradient(
+        left,
+        #262525,
+        #262525 24%,
+        #EFEFEF 24%,
+        #EFEFEF 25%,
+        #FDFDFD 25%
+    );
+  }
 }
 
 .page-container {
