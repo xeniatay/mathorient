@@ -52,24 +52,22 @@ body {
 }
 
 .container-fluid {
-    background-image:-webkit-linear-gradient(
-        left,
-        #262525,
-        #262525 25%,
-        #EFEFEF 25%,
-        #EFEFEF 26%,
-        #FDFDFD 26%
-    );
+    /*linear-gradient*/
+    background:-webkit-gradient(linear,left top,right top,from(#262525),color-stop(#262525,0.25),color-stop(#EFEFEF,0.25),color-stop(#EFEFEF,0.26),color-stop(#FDFDFD,0.26));
+    background:-webkit-linear-gradient( left, #262525, #262525 25%, #EFEFEF 25%, #EFEFEF 26%, #FDFDFD 26%);
+    background:   -moz-linear-gradient( left, #262525, #262525 25%, #EFEFEF 25%, #EFEFEF 26%, #FDFDFD 26%);
+    background:     -o-linear-gradient( left, #262525, #262525 25%, #EFEFEF 25%, #EFEFEF 26%, #FDFDFD 26%);
+    background:        linear-gradient( left, #262525, #262525 25%, #EFEFEF 25%, #EFEFEF 26%, #FDFDFD 26%);
 }
 
 @media (min-width:1250px) {
   .container-fluid {
-    background-image:-webkit-linear-gradient(
-        left,
-        #262525,
-        #262525 50%,
-        #FDFDFD 50%
-    );
+      /*linear-gradient*/
+      background:-webkit-gradient(linear,left top,right top,from(#262525),color-stop(#262525,0.5),color-stop(#FDFDFD,0.5));
+      background:-webkit-linear-gradient( left, #262525, #262525 50%, #FDFDFD 50%);
+      background:   -moz-linear-gradient( left, #262525, #262525 50%, #FDFDFD 50%);
+      background:     -o-linear-gradient( left, #262525, #262525 50%, #FDFDFD 50%);
+      background:        linear-gradient( left, #262525, #262525 50%, #FDFDFD 50%);
   }
 }
 
@@ -87,14 +85,12 @@ body > .container-fluid > .row-fluid {
 
 @media (min-width:1250px) {
   body > .container-fluid > .row-fluid {
-    background-image:-webkit-linear-gradient(
-        left,
-        #262525,
-        #262525 24%,
-        #EFEFEF 24%,
-        #EFEFEF 25%,
-        #FDFDFD 25%
-    );
+      /*linear-gradient*/
+      background:-webkit-gradient(linear,left top,right top,from(#262525),color-stop(#262525,0.24),color-stop(#EFEFEF,0.24),color-stop(#EFEFEF,0.25),color-stop(#FDFDFD,0.25));
+      background:-webkit-linear-gradient( left, #262525, #262525 24%, #EFEFEF 24%, #EFEFEF 25%, #FDFDFD 25%);
+      background:   -moz-linear-gradient( left, #262525, #262525 24%, #EFEFEF 24%, #EFEFEF 25%, #FDFDFD 25%);
+      background:     -o-linear-gradient( left, #262525, #262525 24%, #EFEFEF 24%, #EFEFEF 25%, #FDFDFD 25%);
+      background:        linear-gradient( left, #262525, #262525 24%, #EFEFEF 24%, #EFEFEF 25%, #FDFDFD 25%);
   }
 }
 
