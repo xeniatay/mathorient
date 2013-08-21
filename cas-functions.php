@@ -34,6 +34,27 @@ function lookupLeader($username)
     return $leader;
 }
 
+function lookupStudent ($username)
+{
+    global $wpdb;
+    $student_table = $wpdb->prefix . "_students";
+    $team_table = $wpdb->prefix . "_teams";
+
+    $info = $wpdb->get_row(
+        $wpdb->prepare(
+            "
+            SELECT userid, teamname, facebook_id
+            FROM `$student_table`
+            INNER JOIN `$team_table`
+            ON `$student_table`.teamid = `$team_table`.teamid
+            WHERE userid = %s
+            ",
+            $username
+        ), ARRAY_A
+    );
+    return $info;
+}
+
 function mayViewLeaderPage($username)
 {
     // FOC special case.
