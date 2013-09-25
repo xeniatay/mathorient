@@ -523,6 +523,8 @@ a.pink:hover {
 /* iphone portrait */
 @media (max-width:479px) {
     .waterloo-logo-container {
+        width:100%;
+        text-align:right;
         float:right;
         margin:10px 0 20px 0;
     }
@@ -537,3 +539,66 @@ a.pink:hover {
     font-size:10px;
     line-height:1;
 }
+
+/* shift lookup */
+.shift-lookup {
+  border:1px solid #EFEFEF;
+}
+
+.shift-lookup th {
+  padding: 5px 10px;
+  max-width:80px;
+  text-align: left;
+  text-decoration: underline;
+  font-weight: bold;
+  color: #2f2f2f;
+}
+
+.shift-lookup td {
+    padding:5px 10px;
+}
+
+.shift-lookup tr:nth-child(odd) {
+     background-color:#EFEFEF;
+}
+
+.shift-lookup tr:hover {
+  background-color:#DFDFDF;
+  color:#000000;
+}
+
+/* iphone portrait */
+@media (max-width:479px) {
+  .page-template-shift-lookup-php .page-container {
+    padding:15px 0 20px;
+  }
+
+  .page-template-shift-lookup-php .page-footer {
+    margin-right:20px;
+  }
+
+  .shift-lookup td,
+  .shift-lookup th {
+    font-size:9px;
+  }
+
+  .shift-lookup-title {
+    margin-left:20px;
+    font-size:15px;
+  }
+
+  .shift-lookup-content {
+    font-size:0.8em;
+    padding: 0 20px;
+  }
+
+  .shift-lookup-content h4 {
+    font-size:12px;
+  }
+}
+
+.strikethrough {
+  text-decoration:line-through;
+}
+
+
