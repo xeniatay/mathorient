@@ -106,6 +106,10 @@ function mayViewLeaderPage($username)
 
 function leaderProtectPage()
 {
+
+  return true;
+  // Disabled for 2014
+  /*
     // This function could be called in the header to protect a page
     // and return true if the user may view it.
     casInit();
@@ -113,9 +117,11 @@ function leaderProtectPage()
     $username = phpCAS::getUser();
     $is_leader = mayViewLeaderPage($username);
     return $is_leader;
-/*    if (!$is_leader){
+
+    if (!$is_leader){
         die("You don't seem to be a leader.  Only leaders may view this page.  If this is in error, and you are a leader, the website volunteer team will be happy to fix it.");
-}*/
+    }
+ */
 }
 
 function time_to_int($time){
