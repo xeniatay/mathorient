@@ -82,7 +82,7 @@
     <div class="container-fluid">
         <div id="content-container" class="row-fluid">
             <sidebar class="site-sidebar span3 pull-left">
-                <?php get_sidebar('main'); ?>
+                <?php //get_sidebar('main'); ?>
             </sidebar>
             <div class="page-container span9 pull-left">
                 <header class="page-header">
